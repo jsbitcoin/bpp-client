@@ -332,7 +332,7 @@ class BPPxmpp(sleekxmpp.ClientXMPP):
 		        p1, p2, p3, addr = req['DATA']['PATH'].split('/')
 		        frm, to = msg['from'].bare, self.boundjid.bare
 		        if Btclib.pubkey_to_address(Btclib.bip32_extract_key(Btclib.subkey_for_path(bppclient.mpkbtc, p1+'/'+p2+'/'+p3))) != addr: return
-		        if req['DATA']['TXIN'] in bppclient.pendpayhist: return"mm" 
+		        if req['DATA']['TXIN'] in bppclient.pendpayhist: return
 		        if req['DATA']['TXIN'] in map(lambda x:x[0], bppclient.confpayhist): return
 		        invoke_gui(insertPendPay, (req['DATA']['TXIN'],req['DATA']['PATH'],frm,to,req['DATA']['REF'],req['DATA']['RETADDR']))
 		        bppclient.pendpayhist[req['DATA']['TXIN']] = (req['DATA']['PATH'],frm,to,req['DATA']['REF'],req['DATA']['RETADDR'])

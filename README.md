@@ -9,3 +9,4 @@ Dependencies:
 * sleekxmpp
 * dnspython
 
+I will create binary pack for Windows, Linux, and Mac soon.
